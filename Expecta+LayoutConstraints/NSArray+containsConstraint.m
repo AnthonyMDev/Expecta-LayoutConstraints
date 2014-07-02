@@ -15,7 +15,7 @@
 - (BOOL)containsConstraint:(NSLayoutConstraint *)expectedConstraint
 {
   for (NSLayoutConstraint *actualConstraint in self) {
-    if ([actualConstraint EXPmatchesConstraint:expectedConstraint]) return YES;
+    if ([actualConstraint matchesConstraint:expectedConstraint]) return YES;
   }
   return NO;
 }
