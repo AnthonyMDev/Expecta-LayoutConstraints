@@ -14,9 +14,10 @@
 		92137342196358BE002171F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92137341196358BE002171F9 /* UIKit.framework */; };
 		92137345196358BE002171F9 /* libExpecta+LayoutConstraints.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9213732D196358BE002171F9 /* libExpecta+LayoutConstraints.a */; };
 		9213734B196358BE002171F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92137349196358BE002171F9 /* InfoPlist.strings */; };
-		9213734D196358BE002171F9 /* Expecta_LayoutConstraintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213734C196358BE002171F9 /* Expecta_LayoutConstraintsTests.m */; };
+		9213734D196358BE002171F9 /* Expecta+LayoutConstraintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213734C196358BE002171F9 /* Expecta+LayoutConstraintsTests.m */; };
 		9213735919635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213735819635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m */; };
 		9213735C19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213735B19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m */; };
+		92336E6D19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */; };
 		BA64E9A87773484581551906 /* libPods-Expecta+LayoutConstraints.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CD8E3F56A04958B05227A4 /* libPods-Expecta+LayoutConstraints.a */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +54,14 @@
 		92137341196358BE002171F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		92137348196358BE002171F9 /* Expecta+LayoutConstraintsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Expecta+LayoutConstraintsTests-Info.plist"; sourceTree = "<group>"; };
 		9213734A196358BE002171F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9213734C196358BE002171F9 /* Expecta_LayoutConstraintsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Expecta_LayoutConstraintsTests.m; sourceTree = "<group>"; };
+		9213734C196358BE002171F9 /* Expecta+LayoutConstraintsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Expecta+LayoutConstraintsTests.m"; sourceTree = "<group>"; };
 		92137356196358F0002171F9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		9213735719635A09002171F9 /* EXPMatchers+haveLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+haveLayoutConstraint.h"; sourceTree = "<group>"; };
 		9213735819635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+haveLayoutConstraint.m"; sourceTree = "<group>"; };
 		9213735A19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+haveLayoutConstraints.h"; sourceTree = "<group>"; };
 		9213735B19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+haveLayoutConstraints.m"; sourceTree = "<group>"; };
+		92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+EXPMatchesConstraint.h"; sourceTree = "<group>"; };
+		92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+EXPMatchesConstraint.m"; sourceTree = "<group>"; };
 		9340513A8F5E46D293F0FED7 /* Pods-Expecta+LayoutConstraints.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expecta+LayoutConstraints.xcconfig"; path = "Pods/Pods-Expecta+LayoutConstraints.xcconfig"; sourceTree = "<group>"; };
 		F6CD8E3F56A04958B05227A4 /* libPods-Expecta+LayoutConstraints.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expecta+LayoutConstraints.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				92137335196358BE002171F9 /* Expecta+LayoutConstraints.h */,
+				92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */,
+				92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */,
 				9213735719635A09002171F9 /* EXPMatchers+haveLayoutConstraint.h */,
 				9213735819635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m */,
 				9213735A19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.h */,
@@ -143,7 +148,7 @@
 		92137346196358BE002171F9 /* Expecta+LayoutConstraintsTests */ = {
 			isa = PBXGroup;
 			children = (
-				9213734C196358BE002171F9 /* Expecta_LayoutConstraintsTests.m */,
+				9213734C196358BE002171F9 /* Expecta+LayoutConstraintsTests.m */,
 				92137347196358BE002171F9 /* Supporting Files */,
 			);
 			path = "Expecta+LayoutConstraintsTests";
@@ -275,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9213735919635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m in Sources */,
+				92336E6D19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m in Sources */,
 				9213735C19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9213734D196358BE002171F9 /* Expecta_LayoutConstraintsTests.m in Sources */,
+				9213734D196358BE002171F9 /* Expecta+LayoutConstraintsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

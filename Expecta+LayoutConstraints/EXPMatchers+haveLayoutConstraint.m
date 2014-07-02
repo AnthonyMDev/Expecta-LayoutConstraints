@@ -8,32 +8,40 @@
 
 #import "EXPMatchers+haveLayoutConstraint.h"
 
+#import "NSLayoutConstraint+EXPMatchesConstraint.h"
+
 EXPMatcherImplementationBegin(haveLayoutConstraint, (NSLayoutConstraint *expected)) {
-  
+  BOOL actualIsNil = (actual == nil);
+  BOOL expectedIsNil = (expected == nil);
+  BOOL actualIsCompatible = [actual isKindOfClass:[UIView class]];
+
   match(^BOOL {
     
-    for (NSLayoutConstraint *item in actual)
+    for (NSLayoutConstraint *actualConstraint in [actual constraints])
     {
-      if (item.firstItem == expected.firstItem &&
-          item.firstAttribute == expected.firstAttribute &&
-          item.relation == expected.relation &&
-          item.secondItem == expected.secondItem &&
-          item.secondAttribute == expected.secondAttribute &&
-          item.multiplier == expected.multiplier &&
-          item.constant == expected.constant) {
+      if ([expected matchesConstraint:actualConstraint]) {
         return YES;
       }
     }
-    
     return NO;
   });
   
   failureMessageForTo(^NSString * {
-    return @"The layout constraint is not found;";
+    if (!actualIsCompatible) return [NSString stringWithFormat:@"%@ is not an instance of UIView",
+                                     EXPDescribeObject(actual)];
+    if (actualIsNil) return @"the actual value is nil/null";
+    if (expectedIsNil) return @"the expected value is nil/null";
+    
+    return [NSString stringWithFormat:@"expected: %@ to have layout constraint %@", EXPDescribeObject(actual), EXPDescribeObject(expected)];
   });
   
   failureMessageForNotTo(^NSString * {
-    return @"The unexpected layout constraint was found in the given array.";
+    if (!actualIsCompatible) return [NSString stringWithFormat:@"%@ is not an instance of UIView",
+                                     EXPDescribeObject(actual)];
+    if (actualIsNil) return @"the actual value is nil/null";
+    if (expectedIsNil) return @"the expected value is nil/null";
+    
+    return [NSString stringWithFormat:@"expected: %@ not to have layout constraint %@", EXPDescribeObject(actual), EXPDescribeObject(expected)];
   });
 }
 EXPMatcherImplementationEnd

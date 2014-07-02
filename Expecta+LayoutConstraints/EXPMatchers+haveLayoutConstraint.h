@@ -7,7 +7,8 @@
 //
 
 #import "Expecta.h"
-#import <UIKit/NSLayoutConstraint.h>
+
+#import <UIKit/UIKit.h>
 
 EXPMatcherInterface(haveLayoutConstraint, (NSLayoutConstraint *expected));
 

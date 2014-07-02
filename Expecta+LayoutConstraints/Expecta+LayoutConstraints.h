@@ -1,5 +1,5 @@
 //
-//  Expecta_LayoutConstraints.h
+//  Expecta+LayoutConstraints.h
 //  Expecta+LayoutConstraints
 //
 //  Created by Anthony Miller on 7/1/14.

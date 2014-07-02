@@ -8,25 +8,41 @@
 
 #import "EXPMatchers+haveLayoutConstraints.h"
 
-#import <UIKit/NSLayoutConstraint.h>
+#import <UIKit/UIKit.h>
+#import "NSLayoutConstraint+EXPMatchesConstraint.h"
 
 EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
+  BOOL actualIsNil = (actual == nil);
+  BOOL expectedIsNil = (expected == nil);
+  BOOL actualIsCompatible = [actual isKindOfClass:[UIView class]];
+  BOOL (^expectedIsCompatible)(id) = ^BOOL(id expected) {
+    if(![expected isKindOfClass:[NSArray class]]) {
+      return NO;
+      
+    } else {
+      for (id item in expected) {
+        if (![item isKindOfClass:[NSLayoutConstraint class]]) {
+          return NO;
+          
+        }
+      }
+    }
+    return YES;
+  };
+  
+  prerequisite(^BOOL{
+    return !actualIsNil && !expectedIsNil && actualIsCompatible && expectedIsCompatible;
+  });
   
   match(^BOOL {
     
     for (NSLayoutConstraint *expectedConstraint in expected)
     {
-      for (NSLayoutConstraint *actualConstraint in actual) {
-        if (expectedConstraint.firstItem == actualConstraint.firstItem &&
-            expectedConstraint.firstAttribute == actualConstraint.firstAttribute &&
-            expectedConstraint.relation == actualConstraint.relation &&
-            expectedConstraint.secondItem == actualConstraint.secondItem &&
-            expectedConstraint.secondAttribute == actualConstraint.secondAttribute &&
-            expectedConstraint.multiplier == actualConstraint.multiplier &&
-            expectedConstraint.constant == actualConstraint.constant)
-        {
+      for (NSLayoutConstraint *actualConstraint in [actual constraints]) {
+        if ([expectedConstraint matchesConstraint:actualConstraint]) {
           break;
         }
+        
         return NO;
       }
     }
@@ -35,11 +51,29 @@ EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
   });
   
   failureMessageForTo(^NSString * {
-    return @"The layout constraints are not found;";
+    if (!actualIsCompatible) return [NSString stringWithFormat:@"%@ is not an instance of UIView",
+                                     EXPDescribeObject(actual)];
+    if (!expectedIsCompatible) return [NSString stringWithFormat:@"%@ is not an NSArray of NSLayoutConstraints",
+                                       EXPDescribeObject(expected)];
+    if (actualIsNil) return @"the actual value is nil/null";
+    if (expectedIsNil) return @"the expected value is nil/null";
+    
+    return [NSString stringWithFormat:@"expected: %@ to have layout constraints %@",
+            EXPDescribeObject(actual),
+            EXPDescribeObject(expected)];
   });
   
   failureMessageForNotTo(^NSString * {
-    return @"An unexpected layout constraint was found in the given array.";
+    if (!actualIsCompatible) return [NSString stringWithFormat:@"%@ is not an instance of UIView",
+                                     EXPDescribeObject(actual)];
+    if (!expectedIsCompatible) return [NSString stringWithFormat:@"%@ is not an NSArray of NSLayoutConstraints",
+                                       EXPDescribeObject(expected)];
+    if (actualIsNil) return @"the actual value is nil/null";
+    if (expectedIsNil) return @"the expected value is nil/null";
+    
+    return [NSString stringWithFormat:@"expected: %@ not to have layout constraints %@",
+            EXPDescribeObject(actual),
+            EXPDescribeObject(expected)];
   });
 }
 
