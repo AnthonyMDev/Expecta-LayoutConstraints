@@ -7,3 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "EXPMatchers+haveLayoutConstraint.h"
+#import "EXPMatchers+haveLayoutConstraints.h"

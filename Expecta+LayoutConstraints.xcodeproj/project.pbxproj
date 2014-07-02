@@ -18,6 +18,7 @@
 		9213735919635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213735819635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m */; };
 		9213735C19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 9213735B19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m */; };
 		92336E6D19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */; };
+		92336E701964B77000776911 /* NSArray+containsConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 92336E6F1964B77000776911 /* NSArray+containsConstraint.m */; };
 		BA64E9A87773484581551906 /* libPods-Expecta+LayoutConstraints.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CD8E3F56A04958B05227A4 /* libPods-Expecta+LayoutConstraints.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		9213735B19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+haveLayoutConstraints.m"; sourceTree = "<group>"; };
 		92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+EXPMatchesConstraint.h"; sourceTree = "<group>"; };
 		92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+EXPMatchesConstraint.m"; sourceTree = "<group>"; };
+		92336E6E1964B77000776911 /* NSArray+containsConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+containsConstraint.h"; sourceTree = "<group>"; };
+		92336E6F1964B77000776911 /* NSArray+containsConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+containsConstraint.m"; sourceTree = "<group>"; };
 		9340513A8F5E46D293F0FED7 /* Pods-Expecta+LayoutConstraints.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expecta+LayoutConstraints.xcconfig"; path = "Pods/Pods-Expecta+LayoutConstraints.xcconfig"; sourceTree = "<group>"; };
 		F6CD8E3F56A04958B05227A4 /* libPods-Expecta+LayoutConstraints.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expecta+LayoutConstraints.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				92137335196358BE002171F9 /* Expecta+LayoutConstraints.h */,
+				92336E6E1964B77000776911 /* NSArray+containsConstraint.h */,
+				92336E6F1964B77000776911 /* NSArray+containsConstraint.m */,
 				92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */,
 				92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */,
 				9213735719635A09002171F9 /* EXPMatchers+haveLayoutConstraint.h */,
@@ -281,6 +286,7 @@
 			files = (
 				9213735919635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m in Sources */,
 				92336E6D19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m in Sources */,
+				92336E701964B77000776911 /* NSArray+containsConstraint.m in Sources */,
 				9213735C19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

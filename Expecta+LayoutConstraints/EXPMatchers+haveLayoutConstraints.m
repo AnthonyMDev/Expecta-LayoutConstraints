@@ -10,6 +10,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSLayoutConstraint+EXPMatchesConstraint.h"
+#import "NSArray+containsConstraint.h"
 
 EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
   BOOL actualIsNil = (actual == nil);
@@ -38,13 +39,7 @@ EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
     
     for (NSLayoutConstraint *expectedConstraint in expected)
     {
-      for (NSLayoutConstraint *actualConstraint in [actual constraints]) {
-        if ([expectedConstraint matchesConstraint:actualConstraint]) {
-          break;
-        }
-        
-        return NO;
-      }
+      if (![[actual constraints] containsConstraint:expectedConstraint]) return NO;
     }
     
     return YES;
@@ -58,8 +53,8 @@ EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
     if (actualIsNil) return @"the actual value is nil/null";
     if (expectedIsNil) return @"the expected value is nil/null";
     
-    return [NSString stringWithFormat:@"expected: %@ to have layout constraints %@",
-            EXPDescribeObject(actual),
+    return [NSString stringWithFormat:@"expected: constraints %@ to have layout constraints %@",
+            EXPDescribeObject([actual constraints]),
             EXPDescribeObject(expected)];
   });
   
@@ -71,8 +66,8 @@ EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
     if (actualIsNil) return @"the actual value is nil/null";
     if (expectedIsNil) return @"the expected value is nil/null";
     
-    return [NSString stringWithFormat:@"expected: %@ not to have layout constraints %@",
-            EXPDescribeObject(actual),
+    return [NSString stringWithFormat:@"expected: constraints %@ not to have layout constraints %@",
+            EXPDescribeObject([actual constraints]),
             EXPDescribeObject(expected)];
   });
 }
