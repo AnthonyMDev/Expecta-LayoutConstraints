@@ -129,10 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				92137335196358BE002171F9 /* Expecta+LayoutConstraints.h */,
-				92336E6E1964B77000776911 /* NSArray+containsConstraint.h */,
-				92336E6F1964B77000776911 /* NSArray+containsConstraint.m */,
-				92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */,
-				92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */,
+				929FE4D0196B63900038D46E /* Categories */,
 				9213735719635A09002171F9 /* EXPMatchers+haveLayoutConstraint.h */,
 				9213735819635A09002171F9 /* EXPMatchers+haveLayoutConstraint.m */,
 				9213735A19635A90002171F9 /* EXPMatchers+haveLayoutConstraints.h */,
@@ -166,6 +163,17 @@
 				92137349196358BE002171F9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		929FE4D0196B63900038D46E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				92336E6E1964B77000776911 /* NSArray+containsConstraint.h */,
+				92336E6F1964B77000776911 /* NSArray+containsConstraint.m */,
+				92336E6B19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.h */,
+				92336E6C19649B4500776911 /* NSLayoutConstraint+EXPMatchesConstraint.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

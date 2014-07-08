@@ -8,9 +8,7 @@
 
 #import "EXPMatchers+haveLayoutConstraints.h"
 
-#import <UIKit/UIKit.h>
-#import "NSLayoutConstraint+EXPMatchesConstraint.h"
-#import "NSArray+containsConstraint.h"
+#import <UIKit/UIView.h>
 
 EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
   BOOL actualIsNil = (actual == nil);
@@ -37,9 +35,29 @@ EXPMatcherImplementationBegin(haveLayoutConstraints, (NSArray *expected)) {
   
   match(^BOOL {
     
+    
     for (NSLayoutConstraint *expectedConstraint in expected)
     {
-      if (![[actual constraints] containsConstraint:expectedConstraint]) return NO;
+      BOOL constraintMatched = NO;
+      
+        for (NSLayoutConstraint *actualConstraint in [actual constraints]) {
+          
+          if (actualConstraint.firstItem == expectedConstraint.firstItem &&
+              actualConstraint.firstAttribute == expectedConstraint.firstAttribute &&
+              actualConstraint.relation == expectedConstraint.relation &&
+              actualConstraint.secondItem == expectedConstraint.secondItem &&
+              actualConstraint.secondAttribute == expectedConstraint.secondAttribute &&
+              actualConstraint.multiplier == expectedConstraint.multiplier &&
+              actualConstraint.constant == expectedConstraint.constant) {
+            
+            constraintMatched = YES;
+            break;
+          }
+        }
+      if (!constraintMatched)
+      {
+        return NO;
+      }
     }
     
     return YES;

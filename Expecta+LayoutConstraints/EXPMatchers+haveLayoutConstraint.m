@@ -8,7 +8,7 @@
 
 #import "EXPMatchers+haveLayoutConstraint.h"
 
-#import "NSLayoutConstraint+EXPMatchesConstraint.h"
+#import <UIKit/UIView.h>
 
 EXPMatcherImplementationBegin(haveLayoutConstraint, (NSLayoutConstraint *expected)) {
   BOOL actualIsNil = (actual == nil);
@@ -19,7 +19,14 @@ EXPMatcherImplementationBegin(haveLayoutConstraint, (NSLayoutConstraint *expecte
     
     for (NSLayoutConstraint *actualConstraint in [actual constraints])
     {
-      if ([expected matchesConstraint:actualConstraint]) {
+      if (actualConstraint.firstItem == expected.firstItem &&
+          actualConstraint.firstAttribute == expected.firstAttribute &&
+          actualConstraint.relation == expected.relation &&
+          actualConstraint.secondItem == expected.secondItem &&
+          actualConstraint.secondAttribute == expected.secondAttribute &&
+          actualConstraint.multiplier == expected.multiplier &&
+          actualConstraint.constant == expected.constant) {
+        
         return YES;
       }
     }
@@ -44,4 +51,6 @@ EXPMatcherImplementationBegin(haveLayoutConstraint, (NSLayoutConstraint *expecte
     return [NSString stringWithFormat:@"expected: %@ not to have layout constraint %@", EXPDescribeObject(actual), EXPDescribeObject(expected)];
   });
 }
+
 EXPMatcherImplementationEnd
+
